@@ -24,25 +24,25 @@ document.addEventListener("DOMContentLoaded", () => {
       t: "Haunting Madeline",
       m: "For your late night mind ✨",
       pdf: "https://drive.google.com/file/d/1MvMvrt4qqSmlGuOyuRhYcxJ62uMcVqDF/view",
-      bouquet: "https://drive.google.com/uc?export=view&id=1QTEIuLTgJ3IWeZa59PbJocGt6s2QP7I9"
+      bouquet: "https://lh3.googleusercontent.com/d/1QTEIuLTgJ3IWeZa59PbJocGt6s2QP7I9"
     },
     b3: {
       t: "Promises and Pomegranates",
       m: "Because you deserve beautiful stories 🌹",
       pdf: "https://drive.google.com/file/d/1KTag56eUXX-kmETtv51Eb9HEwbdDAkjY/view",
-      bouquet: "https://drive.google.com/uc?export=view&id=1QDFe-f_tmsPXVf0s5bNo44vdVoZy7GJj"
+      bouquet: "https://lh3.googleusercontent.com/d/1QDFe-f_tmsPXVf0s5bNo44vdVoZy7GJj"
     },
     b4: {
       t: "The Ritual",
       m: "For the parts of you no one understands 🌙",
       pdf: "https://drive.google.com/file/d/1lg59NNdnxL_0yZ8bhSJvI-qWtZEIkc0y/view",
-      bouquet: "https://drive.google.com/uc?export=view&id=1JNr9TekgQ48Jx7GAiGEInU8yDxGP1xi-"
+      bouquet: "https://lh3.googleusercontent.com/d/1JNr9TekgQ48Jx7GAiGEInU8yDxGP1xi-"
     },
     b5: {
       t: "Twisted Emotions",
       m: "Some stories never end ✨",
       pdf: "https://drive.google.com/file/d/1T5DiSL1VBgik-KQ9nWuo78sHw8tiV9cu/view",
-      bouquet: "https://drive.google.com/uc?export=view&id=1S0Lvk-6KlUJnfmhnQMnjsi7zAa5vOQTo"
+      bouquet: "https://lh3.googleusercontent.com/d/1S0Lvk-6KlUJnfmhnQMnjsi7zAa5vOQTo"
     }
   };
 
