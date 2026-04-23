@@ -4,13 +4,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* PETALS */
   setInterval(() => {
-    const p = document.createElement("div");
-    p.className = "petal";
-    p.style.left = Math.random() * 100 + "vw";
-    p.style.animationDuration = (3 + Math.random() * 5) + "s";
-    document.body.appendChild(p);
-    setTimeout(() => p.remove(), 8000);
-  }, 300);
+  const container = document.querySelector(".petals");
+
+  if (!container) return;
+
+  const p = document.createElement("div");
+  p.className = "petal";
+
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = (3 + Math.random() * 5) + "s";
+  p.style.opacity = Math.random();
+
+  container.appendChild(p);
+
+  setTimeout(() => p.remove(), 8000);
+}, 250);
 
   /* BOOK DATA */
   const books = {
