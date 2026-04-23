@@ -1,4 +1,24 @@
 /* Center everything */
+
+body {
+  color: #f3eaf0;
+}
+
+/* default text styling */
+h1, h2, h3, p, span {
+  color: inherit;
+}
+
+/* softer secondary text */
+p {
+  color: rgba(243, 234, 240, 0.75);
+}
+
+/* make headings pop more */
+h1, h2, h3 {
+  color: #ffe3ec;
+}
+
 body.landing {
   margin: 0;
   height: 100vh;
@@ -366,7 +386,7 @@ body {
 .card h3 {
   font-size: 14px;
   margin-bottom: 10px;
-  color: #f7d6e0;
+  color: #ffe3ec;
   letter-spacing: 0.5px;
 }
 
@@ -427,18 +447,11 @@ body {
 }
 
 .header h1 {
-  font-size: 32px;
-  font-weight: normal;
-  color: #f7d6e0;
-  letter-spacing: 1px;
-  text-shadow: 0 0 25px rgba(255, 77, 109, 0.25);
+  color: #ffd1dc;
 }
 
 .header p {
-  font-size: 14px;
-  opacity: 0.6;
-  margin-top: 8px;
-  color: #e6c2cc;
+  color: rgba(255, 209, 220, 0.6);
 }
 
 /* =========================
