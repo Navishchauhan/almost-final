@@ -78,24 +78,28 @@ const b = params.get("b");
 
 if (b && books[b]) {
 
-  window.addEventListener("DOMContentLoaded", () => {
+  window.onload = () => {
 
     const titleEl = document.getElementById("title");
     const msgEl = document.getElementById("msg");
     const imgEl = document.getElementById("img");
     const openBtn = document.getElementById("openBookBtn");
 
+    console.log("Book loaded:", b);
+
     if (titleEl) titleEl.innerText = books[b].t;
     if (msgEl) msgEl.innerText = books[b].m;
     if (imgEl) imgEl.src = books[b].bouquet;
+
     if (openBtn) {
-      openBtn.addEventListener("click", () => {
+      openBtn.onclick = () => {
+        console.log("Opening PDF:", books[b].pdf);
         window.open(books[b].pdf, "_blank");
-      });
+      };
+    } else {
+      console.log("openBookBtn not found ❌");
     }
-
-  });
-
+  };
 }
 
 });
