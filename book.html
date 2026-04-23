@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Library</title>
-<link rel="stylesheet" href="style.css">
+  <title>Book</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <div class="petals"></div>
 
-<!-- LIBRARY -->
-<div id="books" class="library"></div>
-
-<!-- BOOK PREVIEW -->
-<div class="book hidden" id="bookView">
+<div class="book" id="bookView">
   <h1 id="title"></h1>
   <img id="img" width="250">
   <p id="msg"></p>
   <button id="openBookBtn">Open Book 📖</button>
-  <script src="script.js"></script>
+  
 </div>
-
-<!-- PDF VIEW -->
 <div id="pdfViewer" class="pdf-viewer hidden">
   <div class="pdf-topbar">
     <button onclick="closePDF()">← Back</button>
@@ -30,5 +24,6 @@
 
   <iframe id="pdfFrame"></iframe>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
