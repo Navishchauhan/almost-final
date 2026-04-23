@@ -548,3 +548,59 @@ body {
     opacity: 0;
   }
 }
+
+
+
+/* =========================
+   BOOK PAGE TEXT (READING VIEW)
+========================= */
+
+.book {
+  color: #1a1a1a; /* dark readable text */
+  background: rgba(255, 245, 248, 0.95);
+  padding: 30px;
+  border-radius: 18px;
+  max-width: 600px;
+  margin: 60px auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+/* title */
+.book h1 {
+  color: #2a1a1f;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+/* message text */
+.book p {
+  color: #3a2a30;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* image */
+.book img {
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* open button */
+#openBookBtn {
+  background: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#openBookBtn:hover {
+  background: #e63956;
+}
+
+body:has(.book) {
+  background: radial-gradient(circle at top, #120b10, #050507);
+}
