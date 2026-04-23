@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       t: "Brutal Prince",
       m: "for the girl who makes everything softer 💖",
       pdf: "https://drive.google.com/file/d/1Nzm4iD9jPHc_heINYfx-SO8uimlT2IL-/view",
-      bouquet: "https://drive.google.com/uc?export=view&id=1SSmK0xFHHlUzN-6khZWs6yTN-VvKivLw"
+      bouquet: "https://lh3.googleusercontent.com/d/1SSmK0xFHHlUzN-6khZWs6yTN-VvKivLw"
     },
     b2: {
       t: "Haunting Madeline",
