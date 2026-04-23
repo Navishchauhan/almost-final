@@ -26,24 +26,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const booksContainer = document.getElementById("books");
 
-  if (booksContainer) {
-    Object.keys(books).forEach(id => {
+if (booksContainer) {
+  Object.keys(books).forEach(id => {
 
-      const card = document.createElement("div");
-      card.className = "card";
+    const card = document.createElement("div");
+    card.className = "card";
 
-      card.innerHTML = `
-        <h3>${books[id].t}</h3>
-        <img src="${books[id].bouquet}" class="mini-bouquet">
-      `;
+    card.innerHTML = `
+      <h3>${books[id].t}</h3>
+      <img src="${books[id].bouquet}" class="mini-bouquet">
+    `;
 
-      card.onclick = () => {
-        location = "book.html?b=" + id;
-      };
-
-      booksContainer.appendChild(card);
+    // ✅ FIXED NAVIGATION (THIS IS THE IMPORTANT PART)
+    card.addEventListener("click", () => {
+      window.location.href = "book.html?b=" + id;
     });
-  }
+
+    booksContainer.appendChild(card);
+  });
+}
 
   /* =========================
      BOOK PAGE (book.html)
