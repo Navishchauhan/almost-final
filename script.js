@@ -73,10 +73,12 @@ document.addEventListener("DOMContentLoaded", () => {
      BOOK PAGE
   ========================= */
 
-  const params = new URLSearchParams(location.search);
-  const b = params.get("b");
+const params = new URLSearchParams(window.location.search);
+const b = params.get("b");
 
-  if (b && books[b]) {
+if (b && books[b]) {
+
+  window.addEventListener("DOMContentLoaded", () => {
 
     const titleEl = document.getElementById("title");
     const msgEl = document.getElementById("msg");
@@ -86,13 +88,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (titleEl) titleEl.innerText = books[b].t;
     if (msgEl) msgEl.innerText = books[b].m;
     if (imgEl) imgEl.src = books[b].bouquet;
-
-    /* ✅ FINAL FIX: OPEN PDF IN NEW TAB */
     if (openBtn) {
-      openBtn.onclick = () => {
+      openBtn.addEventListener("click", () => {
         window.open(books[b].pdf, "_blank");
-      };
+      });
     }
-  }
+
+  });
+
+}
 
 });
