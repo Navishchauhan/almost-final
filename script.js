@@ -73,33 +73,44 @@ document.addEventListener("DOMContentLoaded", () => {
      BOOK PAGE
   ========================= */
 
-const params = new URLSearchParams(location.search);
+const params = new URLSearchParams(window.location.search);
 const b = params.get("b");
+
+console.log("Book page loaded:", b);
 
 if (b && books[b]) {
 
-  window.onload = () => {
+  function initBookPage() {
 
     const titleEl = document.getElementById("title");
     const msgEl = document.getElementById("msg");
     const imgEl = document.getElementById("img");
     const openBtn = document.getElementById("openBookBtn");
 
-    console.log("Book loaded:", b);
+    if (!titleEl || !msgEl || !imgEl) {
+      console.log("Missing HTML elements on book page ❌");
+      return;
+    }
 
-    if (titleEl) titleEl.innerText = books[b].t;
-    if (msgEl) msgEl.innerText = books[b].m;
-    if (imgEl) imgEl.src = books[b].bouquet;
+    titleEl.innerText = books[b].t;
+    msgEl.innerText = books[b].m;
+    imgEl.src = books[b].bouquet;
 
     if (openBtn) {
-      openBtn.onclick = () => {
-        console.log("Opening PDF:", books[b].pdf);
+      openBtn.addEventListener("click", () => {
+        console.log("Opening:", books[b].pdf);
         window.open(books[b].pdf, "_blank");
-      };
+      });
     } else {
       console.log("openBookBtn not found ❌");
     }
-  };
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initBookPage);
+  } else {
+    initBookPage();
+  }
 }
 
 });
