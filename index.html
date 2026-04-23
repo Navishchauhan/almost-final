@@ -10,24 +10,29 @@
 
 <div class="petals"></div>
 
-<div class="landing-container">
+<div class="book-cover">
 
-  <div class="glow-orb"></div>
+  <div class="book-content">
 
-  <h1 class="welcome-title">Welcome, Tanu ✨✨</h1>
+    <div class="emoji">🌹📖✨</div>
 
-  <p class="subtitle">On this day where we gift a book and a rose to a loved one, I thought of YOU</p>
+    <h1>Welcome, Tanu ✨✨</h1>
 
-  <button onclick="openLibrary()">Enter Library</button>
+    <p>On this day where we gift a book and a rose to a loved one, I thought of YOU</p>
+
+    <button onclick="openLibrary()">Open Book</button>
+
+  </div>
 
 </div>
 
 <script>
 function openLibrary() {
-  document.body.classList.add("fade-out");
+  document.querySelector('.book-cover').classList.add('open');
+
   setTimeout(() => {
     window.location.href = "library.html";
-  }, 700);
+  }, 800);
 }
 
 window.onload = () => document.body.classList.add('loaded');
