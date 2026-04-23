@@ -1,0 +1,229 @@
+/* Center everything */
+body.landing {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fdf6f9;
+  font-family: 'Georgia', serif;
+}
+
+/* BOOK CONTAINER */
+.book-cover {
+  width: 320px;
+  height: 450px;
+  background: linear-gradient(145deg, #f4b6c2, #e88fa3); /* romantic pink */
+  border-radius: 12px;
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.25),   /* deeper outer shadow */
+    inset -5px 0 12px rgba(0,0,0,0.15); /* inner spine shadow */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-cover:hover {
+  transform: scale(1.02);
+  transition: 0.3s;
+}
+
+/* Spine effect */
+.book-cover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 100%;
+  background: rgba(0,0,0,0.08);
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+/* Content inside book */
+.book-content {
+  text-align: center;
+  padding: 20px;
+}
+
+.book-content h1 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.book-content p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Button styling */
+.book-content button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.book-content button:hover {
+  background: #e63956;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.emoji-header {
+  font-size: 28px;
+  margin-bottom: 10px;
+  animation: float 2s ease-in-out infinite;
+}
+
+/* subtle floating animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Opening animation */
+.book-cover {
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  transform-origin: left;
+}
+
+.book-cover.open {
+  transform: rotateY(-40deg) scale(1.05);
+  opacity: 0.9;
+}
+
+/* Optional page depth effect */
+body {
+  perspective: 1200px;
+}
+
+.mini-bouquet{
+  width: 80px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.hidden{
+  display:none;
+}
+
+/* PDF VIEW */
+.pdf-viewer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#111;
+  animation: fadeIn 0.4s ease;
+}
+
+.pdf-topbar{
+  height:50px;
+  background:#222;
+  color:white;
+  display:flex;
+  align-items:center;
+  padding:0 15px;
+  justify-content:space-between;
+}
+
+/* PDF iframe */
+#pdfFrame{
+  width:100%;
+  height:calc(100% - 50px);
+  border:none;
+}
+
+/* BOOK UNFOLD ANIMATION */
+.book{
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  transform-origin: center;
+}
+
+.book.unfold{
+  transform: scale(0.8) rotateX(20deg);
+  opacity:0;
+}
+
+.library{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  padding:40px;
+}
+
+.card{
+  width:160px;
+  padding:15px;
+  background:white;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  text-align:center;
+  cursor:pointer;
+}
+
+.mini-bouquet{
+  width:80px;
+  margin-top:10px;
+  border-radius:10px;
+}
+
+.hidden{
+  display:none;
+}
+
+/* PDF VIEW */
+.pdf-viewer{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:#111;
+}
+
+.pdf-topbar{
+  height:50px;
+  background:#222;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0 15px;
+}
+
+#pdfFrame{
+  width:100%;
+  height:calc(100% - 50px);
+  border:none;
+}
+
+/* BOOK ANIMATION */
+.book{
+  transition:all 0.8s ease;
+}
+
+.book.unfold{
+  transform:scale(0.8) rotateX(20deg);
+  opacity:0;
+}
