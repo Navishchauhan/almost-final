@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
      BOOK PAGE
   ========================= */
 
-const params = new URLSearchParams(window.location.search);
+const params = new URLSearchParams(location.search);
 const b = params.get("b");
 
 if (b && books[b]) {
