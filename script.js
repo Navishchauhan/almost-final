@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* PETALS */
+  /* =========================
+     PETALS (runs everywhere)
+  ========================= */
   setInterval(() => {
-    const p = document.createElement('div');
-    p.className = 'petal';
-    p.style.left = Math.random() * 100 + 'vw';
-    p.style.animationDuration = (3 + Math.random() * 5) + 's';
+    const p = document.createElement("div");
+    p.className = "petal";
+    p.style.left = Math.random() * 100 + "vw";
+    p.style.animationDuration = (3 + Math.random() * 5) + "s";
     document.body.appendChild(p);
     setTimeout(() => p.remove(), 8000);
   }, 300);
 
-  /* BOOK DATA */
+  /* =========================
+     BOOK DATA
+  ========================= */
   const books = {
     b1: {
       t: "Brutal Prince",
@@ -45,9 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /* =========================
-     LIBRARY PAGE
+     LIBRARY PAGE LOGIC
   ========================= */
-
   const booksContainer = document.getElementById("books");
 
   if (booksContainer) {
@@ -70,47 +73,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
-     BOOK PAGE
+     BOOK PAGE LOGIC
   ========================= */
+  const params = new URLSearchParams(window.location.search);
+  const b = params.get("b");
 
-const params = new URLSearchParams(window.location.search);
-const b = params.get("b");
-
-console.log("Book page loaded:", b);
-
-if (b && books[b]) {
-
-  function initBookPage() {
+  if (b && books[b]) {
 
     const titleEl = document.getElementById("title");
     const msgEl = document.getElementById("msg");
     const imgEl = document.getElementById("img");
     const openBtn = document.getElementById("openBookBtn");
 
-    if (!titleEl || !msgEl || !imgEl) {
-      console.log("Missing HTML elements on book page ❌");
-      return;
-    }
+    if (titleEl) titleEl.innerText = books[b].t;
+    if (msgEl) msgEl.innerText = books[b].m;
+    if (imgEl) imgEl.src = books[b].bouquet;
 
-    titleEl.innerText = books[b].t;
-    msgEl.innerText = books[b].m;
-    imgEl.src = books[b].bouquet;
-
+    /* OPEN PDF IN NEW TAB */
     if (openBtn) {
-      openBtn.addEventListener("click", () => {
-        console.log("Opening:", books[b].pdf);
+      openBtn.onclick = () => {
         window.open(books[b].pdf, "_blank");
-      });
-    } else {
-      console.log("openBookBtn not found ❌");
+      };
     }
   }
-
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initBookPage);
-  } else {
-    initBookPage();
-  }
-}
 
 });
