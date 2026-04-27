@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("script loaded ✅");
 
   /* =========================
-     🌹 ADVANCED PETALS SYSTEM
+     🌹 PETALS
   ========================= */
 
   setInterval(() => {
@@ -37,37 +37,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   /* =========================
-     📚 BOOK DATA (FIXED LINKS)
+     📚 BOOK DATA
   ========================= */
 
   const books = {
     b1: {
       t: "Brutal Prince",
-      m: "Trust is rarer than love. It's putting your fate, your happiness, your life in someone's hands.",
+      m: "Trust is rarer than love...",
       pdf: "https://drive.google.com/file/d/1Nzm4iD9jPHc_heINYfx-SO8uimlT2IL-/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1SSmK0xFHHlUzN-6khZWs6yTN-VvKivLw"
     },
     b2: {
       t: "The Devil's Den",
-      m: "There is no end for us… My reason for breathing is you.",
+      m: "There is no end for us...",
       pdf: "https://drive.google.com/file/d/1I2Pkq-wpzEvntpDKnNO7zakLHlOxmfo6/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1QTEIuLTgJ3IWeZa59PbJocGt6s2QP7I9"
     },
     b3: {
       t: "Promises and Pomegranates",
-      m: "I'll ruin you… 'So ruin me,' she'd said.",
+      m: "I'll ruin you...",
       pdf: "https://drive.google.com/file/d/1KTag56eUXX-kmETtv51Eb9HEwbdDAkjY/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1QDFe-f_tmsPXVf0s5bNo44vdVoZy7GJj"
     },
     b4: {
       t: "The Ritual",
-      m: "I'd set the world on fire… if it meant saving her.",
+      m: "I'd set the world on fire...",
       pdf: "https://drive.google.com/file/d/1lg59NNdnxL_0yZ8bhSJvI-qWtZEIkc0y/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1JNr9TekgQ48Jx7GAiGEInU8yDxGP1xi-"
     },
     b5: {
       t: "Twisted Emotions",
-      m: "Some scars go deeper… soul deep.",
+      m: "Everyone has scars...",
       pdf: "https://drive.google.com/file/d/1T5DiSL1VBgik-KQ9nWuo78sHw8tiV9cu/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1S0Lvk-6KlUJnfmhnQMnjsi7zAa5vOQTo"
     }
@@ -120,33 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (openBtn) {
       openBtn.onclick = () => {
-        const viewer = document.getElementById("pdfViewer");
-        const frame = document.getElementById("pdfFrame");
-        const title = document.getElementById("pdfTitle");
-
-        if (viewer && frame) {
-          frame.src = books[b].pdf;
-          viewer.classList.remove("hidden");
-
-          if (title) title.innerText = books[b].t;
-        }
+        window.open(books[b].pdf, "_blank"); // ✅ THIS is the fix
       };
     }
   }
 
 });
-
-
-/* =========================
-   ❗ FIX FOR BLACK SCREEN
-========================= */
-
-function closePDF() {
-  const viewer = document.getElementById("pdfViewer");
-  const frame = document.getElementById("pdfFrame");
-
-  if (viewer && frame) {
-    viewer.classList.add("hidden");
-    frame.src = ""; // reset iframe
-  }
-}
