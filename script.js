@@ -43,31 +43,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const books = {
     b1: {
       t: "Brutal Prince",
-      m: "Trust is rarer than love...",
+      m: "Trust is rarer than love. It’s placing your fate, your happiness, your entire life in someone else’s hands and hoping they keep it safe.",
       pdf: "https://drive.google.com/file/d/1Nzm4iD9jPHc_heINYfx-SO8uimlT2IL-/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1SSmK0xFHHlUzN-6khZWs6yTN-VvKivLw"
     },
     b2: {
       t: "The Devil's Den",
-      m: "There is no end for us...",
+      m: "'There is no end for us', he says with certainty. It would be like trying to stop the tides, impossible. My reason for breathing is you.",
       pdf: "https://drive.google.com/file/d/1I2Pkq-wpzEvntpDKnNO7zakLHlOxmfo6/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1QTEIuLTgJ3IWeZa59PbJocGt6s2QP7I9"
     },
     b3: {
       t: "Promises and Pomegranates",
-      m: "I'll ruin you...",
+      m: "'I’m not like the boys from your little private schools'. I’ll ruin you and not think twice about it. 'So ruin me', I said so certain I could survive it.",
       pdf: "https://drive.google.com/file/d/1KTag56eUXX-kmETtv51Eb9HEwbdDAkjY/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1QDFe-f_tmsPXVf0s5bNo44vdVoZy7GJj"
     },
     b4: {
       t: "The Ritual",
-      m: "I'd set the world on fire...",
+      m: "I’d set the world on fire, including myself, if it meant saving her.",
       pdf: "https://drive.google.com/file/d/1lg59NNdnxL_0yZ8bhSJvI-qWtZEIkc0y/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1JNr9TekgQ48Jx7GAiGEInU8yDxGP1xi-"
     },
     b5: {
       t: "Twisted Emotions",
-      m: "Everyone has scars...",
+      m: "Everyone has scars. Some are skin deep, others go far beyond that. 'Soul deep', she whispered.",
       pdf: "https://drive.google.com/file/d/1T5DiSL1VBgik-KQ9nWuo78sHw8tiV9cu/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1S0Lvk-6KlUJnfmhnQMnjsi7zAa5vOQTo"
     }
