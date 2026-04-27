@@ -314,3 +314,61 @@ button:hover {
 .hidden {
   display: none;
 }
+
+/* =========================
+   📖 BOOK PAGE CENTER FIX
+========================= */
+
+.book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* title */
+.book h1 {
+  text-align: center;
+  width: 100%;
+}
+
+/* message */
+.book p {
+  text-align: center;
+  max-width: 480px;
+}
+
+/* image */
+.book img {
+  display: block;
+  margin: 15px auto;
+}
+
+/* button */
+.book button {
+  margin-top: 10px;
+}
+
+/* =========================
+   📚 LIBRARY TEXT CENTER FIX
+========================= */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* book title in cards */
+.card h3 {
+  width: 100%;
+  text-align: center;
+}
+
+/* optional: keep image nicely centered */
+.mini-bouquet {
+  display: block;
+  margin: 10px auto 0 auto;
+}
