@@ -11,35 +11,77 @@
 <div class="petals"></div>
 
 <div class="book-cover">
-
   <div class="book-content">
 
     <div class="emoji">🌹📖</div>
 
     <h1>Welcome, Tanu ✨✨</h1>
 
-    <p>On this day where we gift a book and a rose to a loved one, I thought of My Volchonok💖💖
+    <p>
+      On this day where we gift a book and a rose to a loved one, 
+      I thought of you, My Volchonok 💖💖
     </p>
 
     <button onclick="openLibrary()">Open Book</button>
 
   </div>
-
 </div>
 
+<!-- 🎧 AUDIO -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="long-time.mp3" type="audio/mpeg">
+</audio>
+
+<script src="script.js"></script>
+
 <script>
+const music = document.getElementById("bgMusic");
+
+/* =========================
+   PAGE LOAD ANIMATION
+========================= */
+window.addEventListener("load", () => {
+  document.body.classList.add('loaded');
+
+  // attempt autoplay
+  const playPromise = music.play();
+
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // autoplay blocked → play on first click
+      document.body.addEventListener("click", () => {
+        music.play();
+      }, { once: true });
+    });
+  }
+});
+
+/* =========================
+   OPEN BOOK FUNCTION
+========================= */
 function openLibrary() {
-  document.querySelector('.book-cover').classList.add('open');
+  const cover = document.querySelector('.book-cover');
+
+  cover.classList.add('open');
+
+  // smooth fade out music
+  let volume = music.volume;
+
+  const fade = setInterval(() => {
+    if (volume > 0.05) {
+      volume -= 0.05;
+      music.volume = volume;
+    } else {
+      clearInterval(fade);
+      music.pause();
+    }
+  }, 50);
 
   setTimeout(() => {
     window.location.href = "library.html";
   }, 800);
 }
-
-window.onload = () => document.body.classList.add('loaded');
 </script>
-
-<script src="script.js"></script>
 
 </body>
 </html>

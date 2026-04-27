@@ -2,67 +2,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   console.log("script loaded ✅");
 
-  /* PETALS */
+  /* =========================
+     🌹 ADVANCED PETALS SYSTEM
+  ========================= */
+
   setInterval(() => {
-  const container = document.querySelector(".petals");
+    const container = document.querySelector(".petals");
+    if (!container) return;
 
-  if (!container) return;
+    const p = document.createElement("div");
+    p.className = "petal";
 
-  const p = document.createElement("div");
-  p.className = "petal";
+    p.style.left = Math.random() * 100 + "vw";
 
-  p.style.left = Math.random() * 100 + "vw";
-  p.style.animationDuration = (3 + Math.random() * 5) + "s";
-  p.style.opacity = Math.random();
+    const size = 6 + Math.random() * 10;
+    p.style.width = size + "px";
+    p.style.height = size * 1.2 + "px";
 
-  container.appendChild(p);
+    const depth = Math.random();
+    p.style.opacity = 0.4 + depth * 0.6;
+    p.style.filter = `blur(${(1 - depth) * 2}px)`;
 
-  setTimeout(() => p.remove(), 8000);
-}, 250);
+    const drift = (Math.random() - 0.5) * 100 + "px";
+    p.style.setProperty("--drift", drift);
 
-  /* BOOK DATA */
+    p.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    const colors = ["#ff4d6d", "#ff758f", "#ff8fa3", "#ffb3c1"];
+    p.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+    container.appendChild(p);
+    setTimeout(() => p.remove(), 9000);
+  }, 200);
+
+
+  /* =========================
+     📚 BOOK DATA (FIXED LINKS)
+  ========================= */
+
   const books = {
     b1: {
       t: "Brutal Prince",
-      m: "for the girl who makes everything softer 💖",
-      pdf: "https://drive.google.com/file/d/1Nzm4iD9jPHc_heINYfx-SO8uimlT2IL-/view",
+      m: "Trust is rarer than love. It's putting your fate, your happiness, your life in someone's hands.",
+      pdf: "https://drive.google.com/file/d/1Nzm4iD9jPHc_heINYfx-SO8uimlT2IL-/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1SSmK0xFHHlUzN-6khZWs6yTN-VvKivLw"
     },
     b2: {
-      t: "Haunting Madeline",
-      m: "For your late night mind ✨",
-      pdf: "https://drive.google.com/file/d/1MvMvrt4qqSmlGuOyuRhYcxJ62uMcVqDF/view",
+      t: "The Devil's Den",
+      m: "There is no end for us… My reason for breathing is you.",
+      pdf: "https://drive.google.com/file/d/1I2Pkq-wpzEvntpDKnNO7zakLHlOxmfo6/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1QTEIuLTgJ3IWeZa59PbJocGt6s2QP7I9"
     },
     b3: {
       t: "Promises and Pomegranates",
-      m: "Because you deserve beautiful stories 🌹",
-      pdf: "https://drive.google.com/file/d/1KTag56eUXX-kmETtv51Eb9HEwbdDAkjY/view",
+      m: "I'll ruin you… 'So ruin me,' she'd said.",
+      pdf: "https://drive.google.com/file/d/1KTag56eUXX-kmETtv51Eb9HEwbdDAkjY/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1QDFe-f_tmsPXVf0s5bNo44vdVoZy7GJj"
     },
     b4: {
       t: "The Ritual",
-      m: "For the parts of you no one understands 🌙",
-      pdf: "https://drive.google.com/file/d/1lg59NNdnxL_0yZ8bhSJvI-qWtZEIkc0y/view",
+      m: "I'd set the world on fire… if it meant saving her.",
+      pdf: "https://drive.google.com/file/d/1lg59NNdnxL_0yZ8bhSJvI-qWtZEIkc0y/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1JNr9TekgQ48Jx7GAiGEInU8yDxGP1xi-"
     },
     b5: {
       t: "Twisted Emotions",
-      m: "Some stories never end ✨",
-      pdf: "https://drive.google.com/file/d/1T5DiSL1VBgik-KQ9nWuo78sHw8tiV9cu/view",
+      m: "Some scars go deeper… soul deep.",
+      pdf: "https://drive.google.com/file/d/1T5DiSL1VBgik-KQ9nWuo78sHw8tiV9cu/preview",
       bouquet: "https://lh3.googleusercontent.com/d/1S0Lvk-6KlUJnfmhnQMnjsi7zAa5vOQTo"
     }
   };
 
+
   /* =========================
-     LIBRARY PAGE
+     📚 LIBRARY PAGE
   ========================= */
 
   const booksContainer = document.getElementById("books");
 
   if (booksContainer) {
-    console.log("library detected 📚");
-
     Object.keys(books).forEach(id => {
 
       const card = document.createElement("div");
@@ -74,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
 
       card.onclick = () => {
-        console.log("clicked:", id);
         window.location.href = "book.html?b=" + id;
       };
 
@@ -82,14 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+
   /* =========================
-     BOOK PAGE
+     📖 BOOK PAGE
   ========================= */
 
   const params = new URLSearchParams(window.location.search);
   const b = params.get("b");
-
-  console.log("book page:", b);
 
   if (b && books[b]) {
 
@@ -104,10 +120,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (openBtn) {
       openBtn.onclick = () => {
-        console.log("opening pdf:", books[b].pdf);
-        window.open(books[b].pdf, "_blank");
+        const viewer = document.getElementById("pdfViewer");
+        const frame = document.getElementById("pdfFrame");
+        const title = document.getElementById("pdfTitle");
+
+        if (viewer && frame) {
+          frame.src = books[b].pdf;
+          viewer.classList.remove("hidden");
+
+          if (title) title.innerText = books[b].t;
+        }
       };
     }
   }
 
 });
+
+
+/* =========================
+   ❗ FIX FOR BLACK SCREEN
+========================= */
+
+function closePDF() {
+  const viewer = document.getElementById("pdfViewer");
+  const frame = document.getElementById("pdfFrame");
+
+  if (viewer && frame) {
+    viewer.classList.add("hidden");
+    frame.src = ""; // reset iframe
+  }
+}
