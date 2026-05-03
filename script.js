@@ -167,7 +167,6 @@ export async function addBook() {
     loadWishlist();
   } catch (err) {
     console.error("Add book failed:", err);
-    alert("Something went wrong while adding book.");
   }
 }
 
@@ -223,12 +222,12 @@ export async function deleteBook(id) {
     await deleteDoc(doc(getDB(), "wishlist", id));
     loadWishlist();
   } catch (err) {
-    console.error("Delete failed:", err);
+    console.error(err);
   }
 }
 
 /* =========================
-   TOGGLE FAVORITE
+   FIXED TOGGLE FAVORITE (THIS IS THE FIX)
 ========================= */
 
 export async function toggleFav(id) {
@@ -236,8 +235,16 @@ export async function toggleFav(id) {
     const ref = doc(getDB(), "wishlist", id);
     const snap = await getDoc(ref);
 
+    if (!snap.exists()) {
+      console.warn("Document not found:", id);
+      return;
+    }
+
+    const data = snap.data();
+    const currentFav = data.fav === true;
+
     await updateDoc(ref, {
-      fav: !snap.data().fav
+      fav: !currentFav
     });
 
     loadWishlist();
@@ -266,7 +273,7 @@ export async function editBook(id, book) {
 
     loadWishlist();
   } catch (err) {
-    console.error("Edit failed:", err);
+    console.error(err);
   }
 }
 
