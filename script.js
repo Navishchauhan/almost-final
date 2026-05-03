@@ -75,9 +75,9 @@ const books = {
     bouquet: "https://lh3.googleusercontent.com/d/1QTEIuLTgJ3IWeZa59PbJocGt6s2QP7I9"
   },
   b3: {
-    t: "Promises and Pomegranates",
+    t: "No Promises No lies",
     m: "I’ll ruin you...",
-    pdf: "https://drive.google.com/file/d/1KTag56eUXX-kmETtv51Eb9HEwbdDAkjY/preview",
+    pdf: "https://drive.google.com/file/d/1yVGmegKoBj-trKwj1hWLMn3W_bsBqdjm/preview",
     bouquet: "https://lh3.googleusercontent.com/d/1QDFe-f_tmsPXVf0s5bNo44vdVoZy7GJj"
   },
   b4: {
@@ -87,17 +87,11 @@ const books = {
     bouquet: "https://lh3.googleusercontent.com/d/1JNr9TekgQ48Jx7GAiGEInU8yDxGP1xi-"
   },
   b5: {
-    t: "Twisted Emotions",
+    t: "The Handsom Devil",
     m: "Some scars go soul deep.",
-    pdf: "https://drive.google.com/file/d/1T5DiSL1VBgik-KQ9nWuo78sHw8tiV9cu/preview",
+    pdf: "https://drive.google.com/file/d/1dCqR2wrPPFy0FRlZa8RQGU1njqimqNZc/preview",
     bouquet: "https://lh3.googleusercontent.com/d/1S0Lvk-6KlUJnfmhnQMnjsi7zAa5vOQTo"
   },
-  b6: {
-    t: "No Promises No lies",
-    m: "A promise is just another lie, dressed up to look beautiful enough to believe. Preying on hope",
-    pdf: "https://drive.google.com/file/d/1yVGmegKoBj-trKwj1hWLMn3W_bsBqdjm/preview",
-    bouquet: "https://drive.google.com/file/d/1hkx6cyreSMygQ3urEo4cL9XyOImvuL70/preview"
-  }
 };
 
 /* =========================
