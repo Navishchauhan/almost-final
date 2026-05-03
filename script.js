@@ -31,8 +31,6 @@ function getDB() {
 ========================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("🌸 DOM ready - petals starting");
-
   const MAX_PETALS = 40;
 
   setInterval(() => {
@@ -60,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =========================
-   BOOK DATA (STATIC)
+   BOOK DATA
 ========================= */
 
 const books = {
@@ -97,7 +95,7 @@ const books = {
 };
 
 /* =========================
-   LIBRARY PAGE RENDER
+   LIBRARY RENDER
 ========================= */
 
 const booksContainer = document.getElementById("books");
@@ -121,7 +119,7 @@ if (booksContainer) {
 }
 
 /* =========================
-   BOOK PAGE SAFE LOAD
+   BOOK PAGE
 ========================= */
 
 const params = new URLSearchParams(window.location.search);
@@ -143,7 +141,7 @@ if (b && books[b]) {
 }
 
 /* =========================
-   FIRESTORE COLLECTION
+   FIRESTORE
 ========================= */
 
 function col() {
@@ -151,7 +149,7 @@ function col() {
 }
 
 /* =========================
-   ADD BOOK
+   ADD
 ========================= */
 
 export async function addBook() {
@@ -162,16 +160,21 @@ export async function addBook() {
 
     if (!name) return alert("Book name required");
 
-    await addDoc(col(), { name, author, date, fav: false });
+    await addDoc(col(), {
+      name,
+      author,
+      date,
+      fav: false
+    });
 
     loadWishlist();
   } catch (err) {
-    console.error("Add book failed:", err);
+    console.error(err);
   }
 }
 
 /* =========================
-   LOAD WISHLIST
+   LOAD WISHLIST (FIXED HEART UI HERE)
 ========================= */
 
 export async function loadWishlist() {
@@ -196,20 +199,25 @@ export async function loadWishlist() {
         <span>${book.date || ""}</span>
 
         <div>
-          <button class="fav">❤️</button>
+          <button class="fav">
+            ${book.fav ? "❤️" : "🤍"}
+          </button>
           <button class="edit">✏️</button>
           <button class="del">🗑️</button>
         </div>
       `;
 
       div.querySelector(".del").onclick = () => deleteBook(id);
-      div.querySelector(".fav").onclick = () => toggleFav(id);
       div.querySelector(".edit").onclick = () => editBook(id, book);
+
+      div.querySelector(".fav").onclick = () => {
+        toggleFav(id);
+      };
 
       container.appendChild(div);
     });
   } catch (err) {
-    console.error("Load wishlist failed:", err);
+    console.error(err);
   }
 }
 
@@ -227,7 +235,7 @@ export async function deleteBook(id) {
 }
 
 /* =========================
-   FIXED TOGGLE FAVORITE (THIS IS THE FIX)
+   FAVORITE TOGGLE (LOGIC FIXED BEFORE)
 ========================= */
 
 export async function toggleFav(id) {
@@ -235,26 +243,22 @@ export async function toggleFav(id) {
     const ref = doc(getDB(), "wishlist", id);
     const snap = await getDoc(ref);
 
-    if (!snap.exists()) {
-      console.warn("Document not found:", id);
-      return;
-    }
+    if (!snap.exists()) return;
 
-    const data = snap.data();
-    const currentFav = data.fav === true;
+    const current = snap.data().fav === true;
 
     await updateDoc(ref, {
-      fav: !currentFav
+      fav: !current
     });
 
     loadWishlist();
   } catch (err) {
-    console.error("Toggle fav failed:", err);
+    console.error(err);
   }
 }
 
 /* =========================
-   EDIT BOOK
+   EDIT
 ========================= */
 
 export async function editBook(id, book) {
@@ -278,7 +282,7 @@ export async function editBook(id, book) {
 }
 
 /* =========================
-   GLOBAL ACCESS
+   GLOBAL
 ========================= */
 
 window.addBook = addBook;
