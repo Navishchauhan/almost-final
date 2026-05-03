@@ -91,6 +91,12 @@ const books = {
     m: "Some scars go soul deep.",
     pdf: "https://drive.google.com/file/d/1T5DiSL1VBgik-KQ9nWuo78sHw8tiV9cu/preview",
     bouquet: "https://lh3.googleusercontent.com/d/1S0Lvk-6KlUJnfmhnQMnjsi7zAa5vOQTo"
+  },
+  b6: {
+    t: "No Promises No lies",
+    m: "A promise is just another lie, dressed up to look beautiful enough to believe. Preying on hope",
+    pdf: "https://drive.google.com/file/d/1yVGmegKoBj-trKwj1hWLMn3W_bsBqdjm/preview",
+    bouquet: "https://drive.google.com/file/d/1hkx6cyreSMygQ3urEo4cL9XyOImvuL70/preview"
   }
 };
 
