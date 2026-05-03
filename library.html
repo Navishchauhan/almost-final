@@ -12,14 +12,18 @@
 <div class="header">
   <h1>Your Library 💐</h1>
   <p>Welcome to your virtual library</p>
+
+  <button onclick="window.location.href='wishlist.html'">
+    Wishlist 💌
+  </button>
 </div>
 
 <div id="books" class="library"></div>
 
-<script src="script.js"></script>
+<script type="module" src="script.js"></script>
 
 <script>
-  window.onload = () => document.body.classList.add('loaded');
+window.onload = () => document.body.classList.add('loaded');
 </script>
 
 </body>

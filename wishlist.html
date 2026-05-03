@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wishlist 📚</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="petals"></div>
+
+<div class="wishlist-container">
+  <h1>Wishlist 💌</h1>
+  <p>Add books you want to read</p>
+
+  <div class="wishlist-form">
+    <input type="text" id="bookName" placeholder="Book Name">
+    <input type="text" id="bookAuthor" placeholder="Author">
+    <input type="date" id="bookDate">
+    <button id="addBtn">Add Book</button>
+  </div>
+
+  <div id="wishlist" class="wishlist-list"></div>
+</div>
+
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  import {
+    setDB,
+    addBook,
+    loadWishlist
+  } from "./script.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCnD22LChDg2Zsf76IZv8a5uxfB683kQtQ",
+    authDomain: "book-wishlist-b0de7.firebaseapp.com",
+    projectId: "book-wishlist-b0de7",
+    storageBucket: "book-wishlist-b0de7.appspot.com",
+    messagingSenderId: "603559000515",
+    appId: "1:603559000515:web:06818289268c97d27b6576"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // IMPORTANT: inject DB FIRST
+  setDB(db);
+
+  // button
+  document.getElementById("addBtn").addEventListener("click", addBook);
+
+  // load wishlist safely
+  loadWishlist();
+
+  document.body.classList.add("loaded");
+</script>
+
+</body>
+</html>
